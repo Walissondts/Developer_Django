@@ -4,10 +4,11 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 from .models import Question
+from django.template import loader
 
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    template = loader.get_template('polls/templates/polls/index.html')
+    template = loader.get_template('/home/wsobral/Projetos/Forecast/mysite/polls/templates/polls/index.html')
     context = {
         'latest_question_list': latest_question_list,
     }
